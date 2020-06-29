@@ -1,12 +1,12 @@
 import React from "react"
 import { UserAvatar } from "./UserAvatar.elem"
 
-export const PlayerComp = () => {
-    let avatarsData: string[] = []
+export const TopRoom = () => {
+    let avatarsData: boolean[] = [true, false]
 
     return (
         <div>
-            {avatarsData.map(() => <UserAvatar />)}
+            {avatarsData.map((data) => <UserAvatar isSpeaking={data} />)}
         </div>
     )
 }
