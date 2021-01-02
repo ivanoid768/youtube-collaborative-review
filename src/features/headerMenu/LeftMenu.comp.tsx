@@ -1,14 +1,12 @@
-import React from "react"
+import React, {FunctionComponent, HTMLAttributes} from "react"
 import { Button } from "antd"
 import { CopyOutlined } from '@ant-design/icons';
 
-export const HeaderLeftMenu = () => {
+export const HeaderLeftMenu: FunctionComponent<HTMLAttributes<HTMLDivElement>> = (defaultProps) => {
 
     return (
-        <div>
-            <Button type="primary" shape="round" icon={<CopyOutlined />} size='large'>
-                Copy Room Link    
-            </Button>
+        <div {...defaultProps} >
+            <Button type="primary" shape="circle" icon={<CopyOutlined />} size='middle' title="Copy Room Link"  />
         </div>
     )
 }

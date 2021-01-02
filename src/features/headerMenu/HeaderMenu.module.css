@@ -1,0 +1,9 @@
+.header-menu {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.header-left-menu {
+    margin-right: 5px;
+}
