@@ -10,6 +10,7 @@ import {
 	Switch,
 } from "react-router-dom";
 import { InitRoom } from './features/room/room';
+import { UserLogin } from './features/room/UserLogin';
 
 function App() {
 	return (
@@ -21,6 +22,7 @@ function App() {
 						<InitRoom />
 					</Route>
 					<Route path="/room/:id" exact >
+						<UserLogin />
 						<TopRoom />
 					</Route>
 				</Switch>
