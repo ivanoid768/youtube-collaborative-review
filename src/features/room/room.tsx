@@ -8,9 +8,11 @@ export const InitRoom: FunctionComponent = () => {
     let history = useHistory()
 
     useEffect(() => {
-        axios.get<{newRoomId: string}>('localhost:4000/room/create') //TODO: host as ENV var!
+        axios.post<{roomId: string}>('http://localhost:4001/room/create') //TODO: host as ENV var!
             .then(resp => {
-                let newRoomId = resp.data.newRoomId;
+                let newRoomId = resp.data.roomId;
+
+                console.log('InitRoom', resp.data);
 
                 history.push(`/room/${newRoomId}`)
             })
