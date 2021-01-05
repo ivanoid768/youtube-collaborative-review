@@ -3,6 +3,7 @@ import axios from 'axios'
 
 import React from "react"
 import { useHistory } from "react-router-dom";
+import { roomState } from "./roomState";
 
 export const InitRoom: FunctionComponent = () => {
     let history = useHistory()
@@ -13,6 +14,8 @@ export const InitRoom: FunctionComponent = () => {
                 let newRoomId = resp.data.roomId;
 
                 console.log('InitRoom', resp.data);
+
+                roomState.setRoomId(newRoomId)
 
                 history.push(`/room/${newRoomId}`)
             })

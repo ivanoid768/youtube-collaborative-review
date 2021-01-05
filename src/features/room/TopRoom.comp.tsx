@@ -1,17 +1,17 @@
 import React from "react"
+import { observer } from "mobx-react"
+
 import { UserAvatar } from "./UserAvatar.elem"
 
 import styles from './room.module.css';
-import { getCookie } from "../../lib/cookie";
+import { RoomState } from "./roomState";
 
-export const TopRoom = () => {
-    let avatarsData: boolean[] = [true, false, false, false, false]
-
-    let name = getCookie('yce_nickname')
+export const TopRoom = observer(({ roomState }: { roomState: RoomState }) => {
+    let users = roomState.users;
 
     return (
         <div className={styles['room-cntr']}>
-            {avatarsData.map((data) => <UserAvatar name={name} isSpeaking={data} />)}
+            {users.map((user, index) => <UserAvatar name={user.nickname} isSpeaking={false} key={index} />)}
         </div>
     )
-}
+})

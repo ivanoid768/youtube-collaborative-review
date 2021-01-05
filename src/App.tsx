@@ -11,6 +11,7 @@ import {
 } from "react-router-dom";
 import { InitRoom } from './features/room/room';
 import { UserLogin } from './features/room/UserLogin';
+import { roomState } from './features/room/roomState';
 
 function App() {
 	return (
@@ -23,7 +24,7 @@ function App() {
 					</Route>
 					<Route path="/room/:id" exact >
 						<UserLogin />
-						<TopRoom />
+						<TopRoom roomState={roomState} />
 					</Route>
 				</Switch>
 				<PlayerComp />

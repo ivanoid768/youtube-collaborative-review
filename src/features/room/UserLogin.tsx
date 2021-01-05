@@ -6,8 +6,11 @@ import { Button, Input, Modal } from "antd";
 import { UserOutlined } from '@ant-design/icons';
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import { roomState } from "./roomState";
+import { getCookie } from "../../lib/cookie";
 
 export const UserLogin: FunctionComponent = () => {
+    console.log('UserLogin');
     let { id: roomId } = useParams<{id: string}>();
 
     let allCookies = document.cookie;
@@ -15,6 +18,10 @@ export const UserLogin: FunctionComponent = () => {
     let hasNickname = allCookies.split(';').some(cookieText => {
         return cookieText.indexOf('yce_nickname') !== -1
     })
+
+    if(hasNickname){
+        roomState.addMe({nickname: getCookie('yce_nickname') || 'guest' })
+    }
 
     const [isModalVisible, setIsModalVisible] = useState(!hasNickname);
 
